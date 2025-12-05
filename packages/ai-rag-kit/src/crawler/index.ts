@@ -23,3 +23,12 @@ export {
   type ExtractedImage,
   type ImageExtractOptions,
 } from './image-extractor'
+
+export { crawlRecursively } from './recursive-crawler'
+export type {
+  RecursiveCrawlOptions,
+  RecursiveCrawlResult,
+  CrawlProgress,
+  CrawlFailure,
+  ExtractedLink,
+} from '../types'

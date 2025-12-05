@@ -35,6 +35,11 @@ export type {
   ClipOptions,
   Chunk,
   ChunkOptions,
+  RecursiveCrawlOptions,
+  RecursiveCrawlResult,
+  CrawlProgress,
+  CrawlFailure,
+  ExtractedLink,
 
   // 블로그 생성 관련
   GeneratedBlogPost,
@@ -64,6 +69,9 @@ export {
   // 웹 클리퍼
   clipWebPage,
   clipMultiplePages,
+
+  // 재귀 크롤러
+  crawlRecursively,
 
   // 청크 분할
   splitIntoChunks,

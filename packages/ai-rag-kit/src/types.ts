@@ -190,6 +190,76 @@ export interface ChunkOptions {
 }
 
 // =============================================================================
+// 재귀 크롤러 관련 타입
+// =============================================================================
+
+/** 재귀 크롤링 옵션 */
+export interface RecursiveCrawlOptions extends ClipOptions {
+  /** 최대 탐색 깊이 (기본: 2) */
+  maxDepth?: number
+  /** 최대 페이지 수 (기본: 50) */
+  maxPages?: number
+  /** 같은 도메인만 크롤링 (기본: true) */
+  sameDomainOnly?: boolean
+  /** 제외할 URL 패턴 */
+  excludePatterns?: RegExp[]
+  /** 포함할 URL 패턴 (설정 시 이 패턴만 크롤링) */
+  includePatterns?: RegExp[]
+  /** 요청 간 딜레이 ms (기본: 1000) */
+  delayBetweenRequests?: number
+  /** 폴백 전략 사용 (기본: true) */
+  useFallback?: boolean
+  /** 진행 콜백 */
+  onProgress?: (progress: CrawlProgress) => void
+}
+
+/** 크롤링 진행 상태 */
+export interface CrawlProgress {
+  /** 현재 URL */
+  currentUrl: string
+  /** 처리된 페이지 수 */
+  processedCount: number
+  /** 총 대기열 수 */
+  queueLength: number
+  /** 성공 수 */
+  successCount: number
+  /** 실패 수 */
+  failedCount: number
+  /** 현재 깊이 */
+  currentDepth: number
+}
+
+/** 재귀 크롤링 결과 */
+export interface RecursiveCrawlResult {
+  /** 성공한 페이지들 */
+  success: ClipResult[]
+  /** 실패한 페이지들 */
+  failed: CrawlFailure[]
+  /** 총 처리 시간 (ms) */
+  totalTime: number
+  /** 방문한 URL 목록 */
+  visitedUrls: string[]
+}
+
+/** 크롤링 실패 정보 */
+export interface CrawlFailure {
+  url: string
+  error: string
+  /** 사용된 폴백 전략들 */
+  attemptedStrategies: string[]
+  /** 깊이 */
+  depth: number
+}
+
+/** 링크 추출 결과 */
+export interface ExtractedLink {
+  url: string
+  text: string
+  /** 링크 발견 깊이 */
+  depth: number
+}
+
+// =============================================================================
 // 블로그 생성 관련 타입
 // =============================================================================
 
