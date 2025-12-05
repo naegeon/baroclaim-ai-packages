@@ -1,0 +1,30 @@
+{
+  "name": "baroclaim-ai-packages",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Gemini-based AI packages for content generation with RAG and crawling",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naegeon/baroclaim-ai-packages.git"
+  },
+  "author": "Baroclaim",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8",
+    "turbo": "^2.5.4",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

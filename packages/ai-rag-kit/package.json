@@ -1,0 +1,90 @@
+{
+  "name": "@baroclaim/ai-rag-kit",
+  "version": "0.1.0",
+  "description": "RAG (Retrieval-Augmented Generation) toolkit for AI content generation with crawling, image processing, and blog generation",
+  "author": "Baroclaim",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baroclaim/baroclaim-claude",
+    "directory": "packages/ai-rag-kit"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./crawler": {
+      "types": "./dist/crawler/index.d.ts",
+      "import": "./dist/crawler/index.mjs",
+      "require": "./dist/crawler/index.js"
+    },
+    "./rag": {
+      "types": "./dist/rag/index.d.ts",
+      "import": "./dist/rag/index.mjs",
+      "require": "./dist/rag/index.js"
+    },
+    "./generator": {
+      "types": "./dist/generator/index.d.ts",
+      "import": "./dist/generator/index.mjs",
+      "require": "./dist/generator/index.js"
+    },
+    "./image": {
+      "types": "./dist/image/index.d.ts",
+      "import": "./dist/image/index.mjs",
+      "require": "./dist/image/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "defuddle": "^0.6.6",
+    "jsdom": "^24.0.0"
+  },
+  "devDependencies": {
+    "@baroclaim/ai-core": "workspace:*",
+    "@types/jsdom": "^21.1.7",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.2",
+    "rimraf": "^6.0.1"
+  },
+  "peerDependencies": {
+    "@baroclaim/ai-core": ">=0.1.0",
+    "@prisma/client": ">=5.0.0",
+    "@aws-sdk/client-s3": ">=3.0.0",
+    "sharp": ">=0.33.0"
+  },
+  "peerDependenciesMeta": {
+    "@baroclaim/ai-core": {
+      "optional": true
+    },
+    "@aws-sdk/client-s3": {
+      "optional": true
+    },
+    "sharp": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "ai",
+    "rag",
+    "crawler",
+    "blog-generator",
+    "gemini",
+    "embedding",
+    "pgvector"
+  ],
+  "license": "MIT"
+}
